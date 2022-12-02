@@ -18,15 +18,6 @@ namespace Intro
                                                  "Password=postgres;" +
                                                  "Database=test76";
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            if (services is null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
-
-            services.AddDbContext<EmployeeContext>(optionsBuilder => optionsBuilder.UseNpgsql(CONNECTION_STRING));
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(CONNECTION_STRING);
@@ -37,47 +28,58 @@ namespace Intro
             modelBuilder.Entity<Employee>(e => e.ToTable("employees"));
             base.OnModelCreating(modelBuilder);
         }
-        public async Task Add(Employee employee)
-        {
-            using (var db = new EmployeeContext())
-            {
-                await db.Employees.AddAsync(employee);
-                await db.SaveChangesAsync();
-            }
-        }
-        public async Task<IEnumerable<Employee>> GetAll()
-        {
-            using (var db = new EmployeeContext())
-            {
-                return await db.Employees.ToListAsync();
-            }
-        }
-        public async Task<Employee> Get(int id)
-        {
-            using (var db = new EmployeeContext())
-            {
-                return await db.Employees.FindAsync(id);
-            }
-        }
-        public async Task Update(int id, Employee employee)
-        {
-            using (var db = new EmployeeContext())
-            {
-                db.Employees.Update(employee);
-                await db.SaveChangesAsync();
-            }
-        }
-        public async Task Delete(int id)
-        {
-            using (var db = new EmployeeContext())
-            {
-                var employee = await db.Employees.FindAsync(id);
-                if (employee == null)
-                    return;
+        // public async Task Add(Employee employee)
+        // {
+        //     using (var db = new EmployeeContext())
+        //     {
+        //         await db.Employees.AddAsync(employee);
+        //         await db.SaveChangesAsync();
+        //     }
+        // }
+        // public async Task<IEnumerable<Employee>> GetAll()
+        // {
+        //     using (var db = new EmployeeContext())
+        //     {
+        //         return await db.Employees.ToListAsync();
+        //     }
+        // }
+        // public async Task<Employee> Get(int id)
+        // {
+        //     using (var db = new EmployeeContext())
+        //     {
+        //         return await db.Employees.FindAsync(id);
+        //     }
+        // }
+        // public async Task Update(Employee employee)
+        // {
+        //     using (var db = new EmployeeContext())
+        //     {
+                
+        //         db.Employees.Update(employee);
+        //         await db.SaveChangesAsync();
+        //     }
+        // }
+        
+        // public async Task Delete(Employee employee)
+        // {
+        //     using (var db = new EmployeeContext())
+        //     {
+        //         db.Employees.Remove(employee);
+        //         await db.SaveChangesAsync();
+        //     }
+        // }
 
-                db.Employees.Remove(employee);
-                await db.SaveChangesAsync();
-            }
-        }
+        // public async Task Delete(int id)
+        // {
+        //     using (var db = new EmployeeContext())
+        //     {
+        //         var employee = await db.Employees.FindAsync(id);
+        //         if (employee == null)
+        //             return;
+
+        //         db.Employees.Remove(employee);
+        //         await db.SaveChangesAsync();
+        //     }
+        // }
     }
 }
