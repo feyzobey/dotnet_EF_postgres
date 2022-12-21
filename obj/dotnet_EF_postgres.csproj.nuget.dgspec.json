@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fyz\\Desktop\\Intro\\Intro.csproj": {}
+    "C:\\Users\\Mosstar\\Desktop\\dotnet_EF_postgres\\dotnet_EF_postgres.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fyz\\Desktop\\Intro\\Intro.csproj": {
+    "C:\\Users\\Mosstar\\Desktop\\dotnet_EF_postgres\\dotnet_EF_postgres.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fyz\\Desktop\\Intro\\Intro.csproj",
-        "projectName": "Intro",
-        "projectPath": "C:\\Users\\fyz\\Desktop\\Intro\\Intro.csproj",
-        "packagesPath": "C:\\Users\\fyz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fyz\\Desktop\\Intro\\obj\\",
+        "projectUniqueName": "C:\\Users\\Mosstar\\Desktop\\dotnet_EF_postgres\\dotnet_EF_postgres.csproj",
+        "projectName": "dotnet_EF_postgres",
+        "projectPath": "C:\\Users\\Mosstar\\Desktop\\dotnet_EF_postgres\\dotnet_EF_postgres.csproj",
+        "packagesPath": "C:\\Users\\Mosstar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mosstar\\Desktop\\dotnet_EF_postgres\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fyz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Mosstar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -42,11 +42,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             }
           },
           "imports": [
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

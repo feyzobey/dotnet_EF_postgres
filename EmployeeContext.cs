@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Intro.Entities;
+using dotnet_EF_postgres.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Intro
+namespace dotnet_EF_postgres
 {
     public class EmployeeContext : DbContext
     {
@@ -28,58 +28,29 @@ namespace Intro
             modelBuilder.Entity<Employee>(e => e.ToTable("employees"));
             base.OnModelCreating(modelBuilder);
         }
-        // public async Task Add(Employee employee)
-        // {
-        //     using (var db = new EmployeeContext())
-        //     {
-        //         await db.Employees.AddAsync(employee);
-        //         await db.SaveChangesAsync();
-        //     }
-        // }
-        // public async Task<IEnumerable<Employee>> GetAll()
-        // {
-        //     using (var db = new EmployeeContext())
-        //     {
-        //         return await db.Employees.ToListAsync();
-        //     }
-        // }
-        // public async Task<Employee> Get(int id)
-        // {
-        //     using (var db = new EmployeeContext())
-        //     {
-        //         return await db.Employees.FindAsync(id);
-        //     }
-        // }
-        // public async Task Update(Employee employee)
-        // {
-        //     using (var db = new EmployeeContext())
-        //     {
-                
-        //         db.Employees.Update(employee);
-        //         await db.SaveChangesAsync();
-        //     }
-        // }
-        
-        // public async Task Delete(Employee employee)
-        // {
-        //     using (var db = new EmployeeContext())
-        //     {
-        //         db.Employees.Remove(employee);
-        //         await db.SaveChangesAsync();
-        //     }
-        // }
 
-        // public async Task Delete(int id)
-        // {
-        //     using (var db = new EmployeeContext())
-        //     {
-        //         var employee = await db.Employees.FindAsync(id);
-        //         if (employee == null)
-        //             return;
+        public List<Employee> GetAll()
+        {
+            using (var db = new EmployeeContext())
+            {
+                return db.Employees.ToList();
+            }
+        }
 
-        //         db.Employees.Remove(employee);
-        //         await db.SaveChangesAsync();
-        //     }
-        // }
+        public Employee Get(int id)
+        {
+            using (var db = new EmployeeContext())
+            {
+                return db.Employees.Find(id);
+            }
+        }
+
+        public void DeleteAll(List<Employee> employees)
+        {
+            using (var db = new EmployeeContext())
+            {
+                db.Remove(Employees.ToList());
+            }
+        }
     }
 }
